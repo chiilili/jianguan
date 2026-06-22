@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "投诉单数据导出助手",
+  "version": "1.1.0",
+  "description": "在京东监管投诉处理页一键拉取各队列投诉单并导出为本地 JSON 文件。",
+  "permissions": ["activeTab"],
+  "host_permissions": ["http://jianguan.jd.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "导出投诉单数据"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://jianguan.jd.com/complaint/handle*"],
+      "js": ["queues.js", "fields.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

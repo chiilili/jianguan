@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    body {
+      width: 300px;
+      margin: 0;
+      padding: 14px;
+      font-family: -apple-system, "Microsoft YaHei", sans-serif;
+      font-size: 13px;
+      color: #1f2329;
+    }
+    h1 { font-size: 14px; margin: 0 0 12px; }
+    .section-title { color: #86909c; margin: 4px 0 6px; font-size: 12px; }
+    .queues { border: 1px solid #e5e6eb; border-radius: 4px; padding: 8px; margin-bottom: 12px; }
+    .queues label { display: flex; align-items: center; gap: 6px; padding: 3px 0; cursor: pointer; }
+    .opts { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .opts label { color: #4e5969; display: flex; align-items: center; gap: 6px; }
+    input[type="number"] { width: 64px; padding: 4px 6px; border: 1px solid #d0d3d9; border-radius: 4px; }
+    .bar { display: flex; gap: 8px; margin-bottom: 8px; }
+    .link { color: #1677ff; cursor: pointer; font-size: 12px; }
+    button {
+      width: 100%; padding: 9px; border: none; border-radius: 4px;
+      background: #1677ff; color: #fff; font-size: 14px; cursor: pointer;
+    }
+    button:hover { background: #0e5fe0; }
+    button:disabled { background: #9cc1ff; cursor: not-allowed; }
+    #status { margin-top: 12px; font-size: 12px; line-height: 1.6; min-height: 16px; white-space: pre-line; }
+    #status.err { color: #d4380d; }
+    #status.ok { color: #389e0d; }
+  </style>
+</head>
+<body>
+  <h1>投诉单数据导出 · JSON</h1>
+
+  <div class="section-title">选择要导出的队列</div>
+  <div class="bar">
+    <span class="link" id="selectAll">全选</span>
+    <span class="link" id="selectNone">清空</span>
+  </div>
+  <div class="queues" id="queueList"></div>
+
+  <div class="opts">
+    <label for="pageSize">每页拉取条数</label>
+    <input id="pageSize" type="number" min="1" max="500" value="100" />
+  </div>
+  <div class="opts">
+    <label for="useLabels"><input id="useLabels" type="checkbox" checked />使用中文字段名</label>
+  </div>
+
+  <button id="exportBtn">导出所选队列</button>
+  <div id="status"></div>
+
+  <script src="queues.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
