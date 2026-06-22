@@ -1,4 +1,3 @@
-// 与插件导出保持一致的字段映射（英文 key <-> 中文列名）。
 export const FIELDS = [
   ['complaintNo', '投诉单号'],
   ['statusName', '投诉单状态'],
@@ -21,7 +20,6 @@ export const FIELDS = [
   ['status', '状态码']
 ];
 
-// 把一行（可能是中文字段名导出，也可能是英文原始字段）统一成英文 key。
 export function normalizeRow(row) {
   const out = {};
   for (const [key, label] of FIELDS) {
@@ -32,7 +30,6 @@ export function normalizeRow(row) {
   return out;
 }
 
-// 可在「字段设置」菜单中显隐的数据列（不含固定的「序号」「操作」列）。
 export const COLUMNS = [
   { key: 'complaintNo', label: '投诉单号', width: 200, tooltip: true, fixed: 'left' },
   { key: 'statusName', label: '投诉单状态', width: 110, align: 'center', tag: true },
@@ -52,8 +49,6 @@ export const COLUMNS = [
   { key: 'jdBackReason', label: '京东退回原因', width: 150, tooltip: true }
 ];
 
-// 按投诉单号 + 队列名拼出处理详情页 URL。
-// 例：complaintHandleDetail/1110122002026052229408787?tab=%E5%BE%85%E5%A4%84%E7%90%86&showCallerBtn=1
 export function buildDetailUrl(complaintNo, queueName) {
   const tab = encodeURIComponent(queueName || '待处理');
   return `http://jianguan.jd.com/complaint/complaintHandleDetail/${complaintNo}?tab=${tab}&showCallerBtn=1`;
