@@ -4,13 +4,6 @@
 
 **在线体验：[https://jianguan.woaiwusaqi.cn/](https://jianguan.woaiwusaqi.cn/)**
 
-## 项目结构
-
-| 目录 | 作用 |
-| --- | --- |
-| [`extension/`](extension/) | Chrome 插件（Manifest V3），在投诉处理页一键拉取各队列投诉单并导出为本地 JSON |
-| [`apps/`](apps/) | Vue 3 + Vite + Element Plus 的 Web 程序，导入导出文件可视化展示，点「处理」跳回原系统处理 |
-
 ## 使用流程
 
 1. 在 Chrome 安装 `extension/`（开发者模式 → 加载已解压扩展）。
